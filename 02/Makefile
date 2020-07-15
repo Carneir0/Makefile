@@ -6,7 +6,7 @@ C_SRC=$(wildcard *.c)
 H_SRC=$(wildcard *.h)
 
 $(PROJ_NAME): $(OBJ)
-	$(CC) -o $@ $^
+	$(CC) -o $@ $^ -lm
 
 clean:
 	rm -rf *.o $(PROJ_NAME)

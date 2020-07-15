@@ -3,10 +3,9 @@
 #include "funcoes.h"
 
 int main() {
-    int opcao;
+    int opcao=1;
 
     opcao = menu();
-
     processa(opcao);
 
     return 0;
