@@ -5,8 +5,10 @@
 int main() {
     int opcao=1;
 
-    opcao = menu();
-    processa(opcao);
+    while(opcao != 0) {
+        opcao = menu();
+        processa(opcao);
+    }
 
     return 0;
 }

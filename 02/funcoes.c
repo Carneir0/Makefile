@@ -11,8 +11,8 @@
 */
 int menu() {
     int opcao;
-    printf("===== CONVERSOR BINARIO/DECIMAL =====\n\n\n");
-    printf("Escolha uma opcao:\n1)Binario - Decimal\n2)Decimal - Binario\n0) Encerrar\n\nO: ");
+    printf("===== CONVERSOR BINARIO/DECIMAL =====\n\n");
+    printf("Escolha uma opcao:\n1) Binario - Decimal\n2) Decimal - Binario\n0) Encerrar\n\nO: ");
     scanf("%d",&opcao);
     return opcao;
 }
@@ -23,8 +23,10 @@ int menu() {
 void processa(int opcao) {
     if(opcao == 1) {
         binDec();
-    } else {
+    } else if(opcao == 2) {
         decBin();
+    } else {
+        exit(1);
     }
 }
 
@@ -38,18 +40,17 @@ void binDec() {
     int j;
     int i;
 
-    printf("Numero a ser convertido: ");
+    printf("Numero binario: ");
     scanf("%s",numBin);
 
     j=strlen(numBin);
     for(i=0;i<(int)strlen(numBin);i++) {
-        printf("%c %d\n",numBin[j],j);
-        if(numBin[j] == '1') {
+        if(numBin[j-1] == '1') {
             numDec += (int)pow(2,i);
         }
+        j--;
     }
-    printf("Numero convertido: %d\n\n\n",numDec);
-
+    printf("Numero decimal: %d\n\n\n",numDec);
 }
 
 /*
@@ -61,7 +62,7 @@ void decBin() {
     int div;
     int index=7;
 
-    printf("Numero a ser convertido: ");
+    printf("Numero decimal: ");
     scanf("%d",&numDec);
     div = numDec;
 
@@ -76,5 +77,5 @@ void decBin() {
     }
     numBin[index] = div + '0';
 
-    printf("Numero convertido: %s\n",numBin);
+    printf("Numero binario: %s\n\n\n",numBin);
 }
